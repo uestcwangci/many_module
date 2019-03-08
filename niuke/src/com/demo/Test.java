@@ -1,59 +1,71 @@
 package com.demo;
 
 
-
-import java.lang.reflect.Field;
+import java.util.ArrayDeque;
 import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Queue;
-
+import java.util.Comparator;
+import java.util.PriorityQueue;
 
 public class Test {
-
     public static void main(String[] args) {
         Test test = new Test();
-        TreeNode t1 = new TreeNode(10);
-        TreeNode t2 = new TreeNode(6);
-        TreeNode t3 = new TreeNode(14);
+        TreeNode root = CreatNewTree();
+    }
+
+    public boolean hasPath(char[] matrix, int rows, int cols, char[] str)
+    {
+        boolean[] isRepeat = new boolean[matrix.length];
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (judge(matrix, rows, cols, i, j, isRepeat, str, 0)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    public boolean judge(char[] matrix, int rows, int cols, int i, int j, boolean[] flag, char[] str, int index) {
+        int k = i * rows + j;
+        if (i < 0 || i >= rows || j < 0 || j >= cols || matrix[k] != str[index] || flag[k]) {
+            return false;
+        }
+        if (index == str.length - 1) {
+            return true;
+        }
+        flag[k] = true;
+        if (judge(matrix, rows, cols, i + 1, j, flag, str, index + 1)
+                || judge(matrix, rows, cols, i - 1, j, flag, str, index + 1)
+                || judge(matrix, rows, cols, i, j + 1, flag, str, index + 1)
+                || judge(matrix, rows, cols, i, j - 1, flag, str, index + 1)) {
+            return true;
+        }
+        flag[k] = false;
+        return false;
+    }
+
+
+    private static TreeNode CreatNewTree() {
+        TreeNode t1 = new TreeNode(1);
+        TreeNode t2 = new TreeNode(2);
+        TreeNode t3 = new TreeNode(3);
         TreeNode t4 = new TreeNode(4);
-        TreeNode t5 = new TreeNode(8);
-        TreeNode t6 = new TreeNode(12);
-        TreeNode t7 = new TreeNode(16);
+        TreeNode t5 = new TreeNode(5);
+        TreeNode t6 = new TreeNode(6);
+        TreeNode t7 = new TreeNode(7);
+        TreeNode t8 = new TreeNode(8);
+        TreeNode t9 = new TreeNode(9);
         t1.left = t2;
         t1.right = t3;
         t2.left = t4;
         t2.right = t5;
         t3.left = t6;
         t3.right = t7;
-        TreeNode t = test.Convert(t1);
-
+        t4.left = t8;
+        t4.right = t9;
+        return t1;
     }
 
-    public TreeNode Convert(TreeNode pRootOfTree) {
-        if (pRootOfTree == null){
-            return null;
-        }
-        ArrayList<TreeNode> L = new ArrayList<>();
-        FindMinTreeNode(pRootOfTree, L);
-        int n = L.size();
-        for (int i = 0; i < n - 1; i++) {
-            L.get(i).right = L.get(i + 1);
-            L.get(i + 1).left = L.get(i);
-        }
-
-        return L.get(0);
-
-    }
-
-    private void FindMinTreeNode(TreeNode pRootOfTree, ArrayList<TreeNode> L){
-        //二叉搜索树中根遍历得到顺序序列
-        if (pRootOfTree != null) {
-            FindMinTreeNode(pRootOfTree.left, L);
-            L.add(pRootOfTree);
-            FindMinTreeNode(pRootOfTree.right, L);
-        }
-    }
 
 
 
