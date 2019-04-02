@@ -1,10 +1,7 @@
 package com.demo;
 
 
-import java.util.ArrayDeque;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.PriorityQueue;
+import beans.TreeNode;
 
 public class Test {
     public static void main(String[] args) {
