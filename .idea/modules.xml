@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/leetcode/leetcode.iml" filepath="$PROJECT_DIR$/leetcode/leetcode.iml" />
       <module fileurl="file://$PROJECT_DIR$/many_module.iml" filepath="$PROJECT_DIR$/many_module.iml" />
       <module fileurl="file://$PROJECT_DIR$/maven_module/maven_module.iml" filepath="$PROJECT_DIR$/maven_module/maven_module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/multi_thread/multi_thread.iml" filepath="$PROJECT_DIR$/multi_thread/multi_thread.iml" />
       <module fileurl="file://$PROJECT_DIR$/niuke/niuke.iml" filepath="$PROJECT_DIR$/niuke/niuke.iml" />
       <module fileurl="file://$PROJECT_DIR$/tx/tx.iml" filepath="$PROJECT_DIR$/tx/tx.iml" />
     </modules>
