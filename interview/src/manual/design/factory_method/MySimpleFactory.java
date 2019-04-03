@@ -1,6 +1,4 @@
-package manual.factory_method;
-
-import java.lang.reflect.InvocationTargetException;
+package manual.design.factory_method;
 
 public abstract class MySimpleFactory {
     public abstract PC getPC();

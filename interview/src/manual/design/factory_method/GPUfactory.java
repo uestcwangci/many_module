@@ -1,4 +1,4 @@
-package manual.factory_method;
+package manual.design.factory_method;
 
 public class GPUfactory extends MySimpleFactory {
 

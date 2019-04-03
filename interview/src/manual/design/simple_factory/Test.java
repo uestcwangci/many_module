@@ -1,4 +1,4 @@
-package manual.factory_method;
+package manual.design.simple_factory;
 
 public class Test {
     public static void main(String[] args) {
@@ -9,8 +9,8 @@ public class Test {
 //        }
 //        pc.progress();
 
-        MySimpleFactory factory = new CPUfactory();
-        PC pc = factory.getPC();
+        MySimpleFactory factory = new MySimpleFactory();
+        PC pc = factory.getProduce(CPU.class);
         if (pc == null) {
             return;
         }

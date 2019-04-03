@@ -1,4 +1,4 @@
-package manual.simple_factory;
+package manual.design.simple_factory;
 
 import java.lang.reflect.InvocationTargetException;
 

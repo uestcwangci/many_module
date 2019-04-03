@@ -1,4 +1,4 @@
-package manual.simple_factory;
+package manual.design.factory_method;
 
 public class CPU extends PC {
 

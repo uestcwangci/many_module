@@ -1,4 +1,4 @@
-package manual.factory_method;
+package manual.design.simple_factory;
 
 public class GPU extends PC {
 

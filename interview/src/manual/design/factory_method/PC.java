@@ -1,4 +1,4 @@
-package manual.simple_factory;
+package manual.design.factory_method;
 
 public abstract class PC {
     public abstract void progress();

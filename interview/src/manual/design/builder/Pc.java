@@ -1,4 +1,4 @@
-package manual.builder;
+package manual.design.builder;
 
 public class Pc {
     private String cpu;

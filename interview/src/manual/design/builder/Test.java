@@ -1,4 +1,4 @@
-package manual.builder;
+package manual.design.builder;
 
 public class Test {
     public static void main(String[] args) {
