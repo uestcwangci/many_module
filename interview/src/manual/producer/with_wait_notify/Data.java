@@ -1,4 +1,4 @@
-package manual.producer;
+package manual.producer.with_wait_notify;
 
 public class Data {
     private int data;

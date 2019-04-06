@@ -1,4 +1,4 @@
-package manual.producer;
+package manual.producer.with_blockqueue;
 
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
@@ -9,7 +9,7 @@ public class Producer implements Runnable{
     private BlockingQueue<Data> blockingQueue;
     private volatile boolean isRunning = true;
     private AtomicInteger count = new AtomicInteger();
-    private static final int SLEEP_TIME = 5000;
+    private static final int SLEEP_TIME = 1000;
 
     public Producer(BlockingQueue<Data> blockingQueue) {
         this.blockingQueue = blockingQueue;
@@ -27,6 +27,7 @@ public class Producer implements Runnable{
                 System.out.println(Thread.currentThread().getId() + "生产 " + data.getData());
                 if (!blockingQueue.offer(data, 2, TimeUnit.SECONDS)) {
                     System.out.println("加入失败");
+                    count.decrementAndGet();
                 }
             }
         } catch (InterruptedException e) {

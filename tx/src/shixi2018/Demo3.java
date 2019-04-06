@@ -14,7 +14,12 @@ public class Demo3 {
     }
 
     public static int chooclate(int[] a) {
-        return (int) Math.ceil(a[1] / (2 - Math.pow(0.5, a[0] - 1)));
+        int min = (int) Math.pow(2, a[0] - 1);
+        int max = (int) (a[1] / (2 - Math.pow(0.5, a[0] - 1)));
+        if (min <= max) {
+            return max;
+        }
+        return 0;
     }
 
 }

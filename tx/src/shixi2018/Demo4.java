@@ -16,6 +16,7 @@ public class Demo4 {
     }
 
     public static int music(int n, int[] a) {
+        int result = 0;
         int bigger, bNum, smaller, sNum;
         if (a[0] > a[2]) {
             bigger = a[0];
@@ -28,21 +29,46 @@ public class Demo4 {
             smaller = a[0];
             sNum = a[1];
         }
-        while (bNum > 0 && bigger * bNum > n) {
-            bNum--;
-        }
+
         int i = 0;
+        int j = bNum;
+        while (j > 0 && bigger * j > n) {
+            j--;
+        }
         int sumNum = 0;
-        while (i <= bNum) {
-            sumNum = smaller * i + bigger * bNum;
+        while (i <= sNum && j > 0) {
+            sumNum = smaller * i + bigger * j;
             if (sumNum > n) {
-                bNum--;
+                j--;
                 i++;
             } else if (sumNum < n) {
                 i++;
             } else {
+                result += (Cnm(bNum, j) * Cnm(sNum, i));
+                j--;
             }
         }
-        return 1;
+        return result;
+    }
+
+    private static int Cnm(int n, int m) {
+        if (m == 0 || n == m) {
+            return 1;
+        }
+        if (m == 1) {
+            return n;
+        }
+        if (m > n / 2) {
+            m = n - m;
+        }
+        long fenzi = 1;
+        long fenmu = 1;
+        for (int i = 0; i < m; n--, i++) {
+            fenzi *= n;
+        }
+        for (; m > 0; m--) {
+            fenmu *= m;
+        }
+        return (int) (fenzi / fenmu);
     }
 }

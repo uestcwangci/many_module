@@ -1,10 +1,10 @@
-package manual.producer;
+package manual.producer.with_blockqueue;
 
 import java.util.concurrent.*;
 
 public class Test {
     public static void main(String[] args) {
-        BlockingQueue<Data> blockingQueue = new LinkedBlockingDeque<>();
+        BlockingQueue<Data> blockingQueue = new LinkedBlockingDeque<>(10);
         Producer p1 = new Producer(blockingQueue);
         Producer p2 = new Producer(blockingQueue);
         Producer p3 = new Producer(blockingQueue);
@@ -22,6 +22,14 @@ public class Test {
         service.execute(c2);
         service.execute(c3);
         service.execute(c4);
+        try {
+            Thread.sleep(5000);
+            p1.stop();
+            p2.stop();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        service.shutdown();
 
     }
 }

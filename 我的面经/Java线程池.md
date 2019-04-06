@@ -90,6 +90,9 @@ execute方法没有返回值，所以说我们也就无法判定任务是否被�
 	ExecutorService service = Executors.newFixedThreadPool(4);
 **核心线程数=最大线程数，**所容纳最大的线程数就是我们设置的核心线程数。newFixedThreadPool只有核心线程，并且不存在超时机制，采用LinkedBlockingQueue，所以对于任务队列的大小也是没有限制的。
 ### 3. newScheduledThreadPool ###
+
+	ScheduledExecutorService service = Executors.newScheduledThreadPool(4);//实例化方式不同
+
 	public static ScheduledExecutorService newScheduledThreadPool(int corePoolSize) {
 	    return new ScheduledThreadPoolExecutor(corePoolSize);
 	}

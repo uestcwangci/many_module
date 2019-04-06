@@ -1,4 +1,4 @@
-package manual.producer;
+package manual.producer.with_blockqueue;
 
 import java.util.Random;
 import java.util.concurrent.BlockingQueue;
