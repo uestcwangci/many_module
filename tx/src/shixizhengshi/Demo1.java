@@ -38,22 +38,25 @@ public class Demo1 {
             System.out.println(0);
             return;
         }
+        // 不确定输入饮料是否有序
         Arrays.sort(b);
-        for (int i = 0; i < b.length - 1; i++) {
-            s = s - b[0];
+        // 贪心算法，每个饮料从大到小喝到仅剩体积最小那瓶的容量
+        for (int i = b.length - 1; s > 0 && i > 0; i--) {
+            s = s - (b[i] - b[0]);
         }
         if (s <= 0) {
             System.out.println(b[0]);
             return;
         }
-        if (s < b.length) {
+        if (s <= b.length) {
+            // 剩余饮料不足以每瓶都喝1升
             System.out.println(b[0] - 1);
-            return;
         } else {
-            int ave = (s + 1) / b.length; //向上取整
+            int ave = (int) Math.ceil(s / b.length);
             System.out.println(b[0] - ave);
-            return;
         }
     }
+
+
 
 }
