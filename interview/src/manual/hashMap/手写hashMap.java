@@ -52,6 +52,7 @@ public class 手写hashMap<K, V> {
             size++;
             return;
         }
+        // 发生hash冲突
         Node<K, V> node = table[index];
         while (node != null) {
             if (key.equals(node.key)) {
@@ -62,6 +63,7 @@ public class 手写hashMap<K, V> {
             node = node.next;
         }
         table[index] = new Node<>(key, value, table[index]);
+        size++;
         System.out.println("发生链表添加结点");
     }
 
